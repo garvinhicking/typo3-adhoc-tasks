@@ -38,9 +38,6 @@
         "typo3/cms-core": "14.0.x@dev",
         "typo3/cms-scheduler": "14.0.x@dev"
     },
-    "replace": {
-        "garvinhicking/adhoc-tasks": "*"
-    },
     "extra": {
         "typo3/cms": {
             "web-dir": ".Build/public",
