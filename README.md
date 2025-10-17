@@ -39,9 +39,9 @@ without the need to refactor every `AbstractTask` into a Symfony Command.
 Ad-hoc tasks can be executed like:
 
 ```
-    bin/typo3 scheduler:adhoc:execute
-      --task 'TYPO3\CMS\Scheduler\Task\OptimizeDatabaseTableTask'
-      --config='{"selected_tables": "be_dashboards,be_groups"}'
+bin/typo3 scheduler:adhoc:execute
+  --task 'TYPO3\CMS\Scheduler\Task\OptimizeDatabaseTableTask'
+  --config='{"selected_tables": "be_dashboards,be_groups"}'
 ```
 
 The two new options `--task` and `--config` specify the unique
@@ -60,9 +60,9 @@ advantages:
 > The list of available parameters of a given task type can be investigated
 > via:
 > ```
->        bin/typo3 scheduler:adhoc:execute
->          --task 'TYPO3\CMS\Scheduler\Task\OptimizeDatabaseTableTask'
->          --config='?'
+> bin/typo3 scheduler:adhoc:execute
+>   --task 'TYPO3\CMS\Scheduler\Task\OptimizeDatabaseTableTask'
+>   --config='?'
 > ```
 
 A second command `bin/typo3 scheduler:adhoc:list` shows a list of all ad-hoc
