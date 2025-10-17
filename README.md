@@ -4,6 +4,18 @@ Allows to run any TYPO3 (v14) Scheduler Task on the command line, with custom co
 
 This was originally proposed as https://review.typo3.org/c/Packages/TYPO3.CMS/+/90852.
 
+## Installation
+
+This package can be installed (in TYPO3 v14) as a composer package:
+
+```
+composer req "garvinhicking/adhoc-tasks"
+```
+
+See packagist: https://packagist.org/packages/garvinhicking/adhoc-tasks
+
+No "classic mode" support is planned for this extension.
+
 ## Description
 
 With the reworked scheduler data storage format of TYPO3 v14 (https://forge.typo3.org/issues/106532)
@@ -48,9 +60,9 @@ advantages:
 > The list of available parameters of a given task type can be investigated
 > via:
 > ```
-        bin/typo3 scheduler:adhoc:execute
-          --task 'TYPO3\CMS\Scheduler\Task\OptimizeDatabaseTableTask'
-          --config='?'
+>        bin/typo3 scheduler:adhoc:execute
+>          --task 'TYPO3\CMS\Scheduler\Task\OptimizeDatabaseTableTask'
+>          --config='?'
 > ```
 
 A second command `bin/typo3 scheduler:adhoc:list` shows a list of all ad-hoc
@@ -64,3 +76,8 @@ need "dummy" entries in the Scheduler.
 
 This helps for debugging tasks as well as one-off runs of a specific task.
 
+
+## TODO
+
+Tests were adapted from the TYPO3 Core patch. They do not (yet) work standalone
+due to difference in how Symfony CLI commands can be tested.
