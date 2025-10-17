@@ -1,0 +1,22 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  GarvinHicking\AdHocTasks\:
+    resource: '../Classes/*'
+
+  GarvinHicking\AdHocTasks\Command\SchedulerAdHocListCommand:
+    tags:
+      - name: 'console.command'
+        command: 'scheduler:adhoc:list'
+        description: 'List all Scheduler ad-hoc tasks that can be run without being scheduled.'
+        schedulable: false
+
+  GarvinHicking\AdHocTasks\Command\SchedulerAdHocExecuteCommand:
+    tags:
+      - name: 'console.command'
+        command: 'scheduler:adhoc:execute'
+        description: 'Execute given Scheduler ad-hoc task that is not scheduled.'
+        schedulable: false
