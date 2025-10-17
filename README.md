@@ -2,18 +2,12 @@
 
 Allows to run any TYPO3 (v14) Scheduler Task on the command line, with custom configuration
 
-==============================================================
-Feature: #107575 - "Ad-hoc" scheduler tasks executable via CLI
-==============================================================
+This was originally proposed as https://review.typo3.org/c/Packages/TYPO3.CMS/+/90852.
 
-See :issue:`107575`
+## Description
 
-Description
-===========
-
-With the reworked scheduler data storage format of :issue:`106532`
-(see :ref:`important-106532-1744207039`) this opened up the possibility to have
-"ad-hoc" tasks.
+With the reworked scheduler data storage format of TYPO3 v14 (https://forge.typo3.org/issues/106532)
+this opened up the possibility to have "ad-hoc" tasks.
 
 Previously, the TYPO3 scheduler tasks that were extended from `AbstractTask`
 did not allow to be run without specific configuration. They needed to
@@ -32,11 +26,11 @@ without the need to refactor every `AbstractTask` into a Symfony Command.
 
 Ad-hoc tasks can be executed like:
 
-..  code-block:: bash
-
+```
     bin/typo3 scheduler:adhoc:execute
       --task 'TYPO3\CMS\Scheduler\Task\OptimizeDatabaseTableTask'
       --config='{"selected_tables": "be_dashboards,be_groups"}'
+```
 
 The two new options `--task` and `--config` specify the unique
 ID of a task to execute (currently a fully-qualified classname, in the future probably
@@ -50,22 +44,19 @@ advantages:
 *  It allows to specify newlines and array-types on the CLI
 *  It prevents the need to define, pass-through and validate arbitrary CLI arguments
 
-..  hint::
-
-    The list of available parameters of a given task type can be investigated
-    via:
-
-    ..  code-block:: bash
-
+> **HINT**:
+> The list of available parameters of a given task type can be investigated
+> via:
+> ```
         bin/typo3 scheduler:adhoc:execute
           --task 'TYPO3\CMS\Scheduler\Task\OptimizeDatabaseTableTask'
           --config='?'
+> ```
 
 A second command `bin/typo3 scheduler:adhoc:list` shows a list of all ad-hoc
 tasks that are available, with a list of their parameters.
 
-Impact
-======
+## Impact
 
 All TYPO3 Core tasks and custom `AbstractTask` implementations utilizing
 the "native task" TCA format can now be run from the CLI and no longer
@@ -73,4 +64,3 @@ need "dummy" entries in the Scheduler.
 
 This helps for debugging tasks as well as one-off runs of a specific task.
 
-..  index:: TCA, ext:scheduler
