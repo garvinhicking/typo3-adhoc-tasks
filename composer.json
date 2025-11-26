@@ -1,7 +1,7 @@
 {
     "name": "garvinhicking/adhoc-tasks",
     "type": "typo3-cms-extension",
-    "description": "Allows to run any TYPO3 (v14+) Scheduler Task on the command line, with custom configuration.",
+    "description": "TYPO3 Scheduler AdHoc Tasks - allows to run any TYPO3 (v14+) Scheduler Task on the command line, with custom configuration.",
     "homepage": "https://typo3.org",
     "license": ["GPL-2.0-or-later"],
     "authors": [{
